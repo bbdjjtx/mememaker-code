@@ -48,8 +48,23 @@
       var canvas = document.querySelector('canvas');
       var ctx = canvas.getContext("2d");
       // Your code here
+      // Post the image
+
+      var image = new Image();
+
+      image.onload = function() {
+        console.log("Loaded image");
+        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+        var savedImage = canvas.toDataURL();
+        window.open(savedImage);
+      }
+
+      image.src = "ben-carson.jpg";
+
     }
-    
+
+    // End of my code
+
     function saveFile() {
       window.open(document.querySelector('canvas').toDataURL());
     }
